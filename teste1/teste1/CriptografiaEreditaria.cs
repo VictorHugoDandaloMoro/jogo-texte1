@@ -10,7 +10,7 @@ namespace teste1
     {
         static char[,] mapa;
         static int largura = 50;
-        static int altura = 25;
+        static int altura = 26;
         static int playerX = 1;
         static int playerY = 1;
         static bool jogando = true;
@@ -112,6 +112,67 @@ namespace teste1
             mapa[13, 7] = '#';
             mapa[15, 5] = '#';
             mapa[15, 6] = '#';
+            mapa[4, 12] = '#';
+            mapa[5, 12] = '#';
+            mapa[6, 12] = '#';
+            mapa[6, 11] = '#';
+            mapa[8, 11] = '#';
+            mapa[8, 12] = '#';
+            mapa[9, 12] = '#';
+            mapa[9, 13] = '#';
+            mapa[10, 13] = '#';
+            mapa[5, 13] = '#';
+            mapa[7, 14] = '#';
+            mapa[10, 14] = '#';
+            mapa[4, 24] = '#';
+            mapa[3, 22] = '#';
+            mapa[4, 22] = '#';
+            mapa[4, 20] = '#';
+            mapa[5, 20] = '#';
+            mapa[4, 19] = '#';
+            mapa[5, 19] = '#';
+            mapa[6, 19] = '#';
+            mapa[8, 23] = '#';
+            mapa[8, 21] = '#';
+            mapa[7, 21] = '#';
+            mapa[8, 19] = '#';
+            mapa[11, 20] = '#';
+            mapa[13, 19] = '#';
+            mapa[16, 20] = '#';
+            mapa[17, 20] = '#';
+            mapa[18, 20] = '#';
+            mapa[19, 20] = '#';
+            mapa[20, 20] = '#';
+            mapa[22, 20] = '#';
+            mapa[22, 21] = '#';
+            mapa[22, 22] = '#';
+            mapa[21, 22] = '#';
+            mapa[20, 22] = '#';
+            mapa[19, 22] = '#';
+            mapa[18, 22] = '#';
+            mapa[9, 23] = '#';
+            mapa[10, 23] = '#';
+            mapa[11, 23] = '#';
+            mapa[12, 23] = '#';
+            mapa[13, 23] = '#';
+            mapa[14, 23] = '#';
+            mapa[15, 23] = '#';
+            mapa[16, 23] = '#';
+            mapa[17, 23] = '#';
+            mapa[18, 23] = '#';
+            mapa[11, 2] = '#';
+            mapa[13, 1] = '#';
+            mapa[14, 1] = '#';
+            mapa[15, 1] = '#';
+            mapa[16, 1] = '#';
+            mapa[17, 1] = '#';
+            mapa[17, 2] = '#';
+            mapa[17, 3] = '#';
+            mapa[17, 4] = '#';
+            mapa[14, 3] = '#';
+            mapa[15, 3] = '#';
+            mapa[8, 1] = '#';
+            mapa[10, 2] = '#';
 
             for (int I = 2; I < 10; I++)
             {
@@ -134,12 +195,22 @@ namespace teste1
                 mapa[I, 17] = '#';
 
             }
+            for (int I = 18; I < 24; I++)
+            {
+                mapa[2, I] = '#';
+            }
+            for (int I = 21; I < 25; I++)
+            {
+                mapa[ 6 ,I] = '#';
+            }
+            for (int I = 7; I < 16; I++)
+            {
+                mapa[I,21] = '#';
+            }
 
 
 
-
-
-        }
+            }
 
         static void DesenharMapa()
         {
