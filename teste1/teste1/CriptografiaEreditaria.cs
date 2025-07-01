@@ -11,9 +11,8 @@ namespace teste1
         static char[,] mapa;
         static int largura = 50;
         static int altura = 26;
-        static int playerX = 1;
-        static int playerY = 1;
         static bool jogando = true;
+        static Personagem pl ;
         static void Main()
         {
             Console.Clear();
@@ -32,14 +31,16 @@ namespace teste1
 
                 var tecla = Console.ReadKey(true).Key;
 
-                AtualizarPosicao(tecla); 
+                pl.Movimentar(tecla); 
             }
 
         }
-        static void IniciarMapa()
+        static void IniciarMapa() 
+
         {
 
             mapa = new char[largura, altura];
+            pl = new Personagem(mapa);
 
             for (int y = 0; y < altura; y++)
             {
@@ -58,7 +59,7 @@ namespace teste1
                     }
                 }
             }
-            mapa[playerX, playerY] = '@';
+            mapa[pl.x, pl.y] = '@';
 
             for (int I = 0; I < 5; I++)
             {
@@ -224,38 +225,7 @@ namespace teste1
             }
         }
 
-        static void AtualizarPosicao(ConsoleKey tecla) 
-        {  
-            
-            int tempX = playerX;
-            int tempY = playerY;
-
-            switch (tecla)
-            {
-                case ConsoleKey.A:
-                    tempX--;
-                    break;
-                case ConsoleKey.D:
-                    tempX++;
-                    break;
-                case ConsoleKey.W:
-                    tempY--;
-                    break;
-                case ConsoleKey.S:
-                    tempY++;
-                    break;
-            }
-
-            if ( mapa [tempX, tempY] != '#')
-            {
-                mapa[playerX, playerY] = ' ';
-                mapa[tempX, tempY] = '@';
-                playerX= tempX;
-                playerY= tempY;
-            }
-
-
-        }
+      
          
     }
 }
