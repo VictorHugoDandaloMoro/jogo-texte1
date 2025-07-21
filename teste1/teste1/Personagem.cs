@@ -12,6 +12,7 @@ namespace teste1
         public int y = 1;
         char forma = '@';
         char[,] mapa;
+        public vector2 pos = new vector2(1, 1);
 
         public Personagem(char[,] mapa) { 
             this.mapa  = mapa; 
@@ -21,37 +22,33 @@ namespace teste1
           
         {
 
-            int tempX = x;
-            int tempY = y;
+            int tempx = pos.x;
+            int tempy = pos.y;
+            int x = pos.x;
+            int y = pos.y;
 
             switch (tecla)
             {
                 case ConsoleKey.A:
-                    tempX--;
+                    x=pos.left;
                     break ;
                 case ConsoleKey.D:
-                    tempX++;
+                    x = pos.left;
                     break ;
                     
                 case ConsoleKey.W:
-                    tempY--;
+                    y= pos.left;
                     break ;
                     
                 case ConsoleKey.S:
-                    tempY++;
+                    y = pos.left;
                     break;
             }
 
-            if (mapa[tempX, tempY] != '#')
-            {
-                mapa[x, y] = ' ';
-                mapa[tempX, tempY] = '@';
-                x = tempX;
-                y = tempY;
             }
 
 
         }
 
     }
-}
+
