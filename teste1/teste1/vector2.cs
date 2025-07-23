@@ -21,10 +21,10 @@ namespace teste1
         }
 
 
-        public int up => this.y -= 1;
-        public int down => this.y += 1;
-        public int left => this.x -= 1;
-        public int right => this.x += 1;
+        public int Up => this.y -= 1;
+        public int Down => this.y += 1;
+        public int Left => this.x -= 1;
+        public int Right => this.x += 1;
 
         public static int Distance(vector2 a, vector2 b)
         {

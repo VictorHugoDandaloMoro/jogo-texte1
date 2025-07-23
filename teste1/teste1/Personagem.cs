@@ -8,18 +8,16 @@ namespace teste1
 {
     class Personagem
     {
-        public int x = 1;
-        public int y = 1;
+       
         char forma = '@';
-        char[,] mapa;
+       
         public vector2 pos = new vector2(1, 1);
 
-        public Personagem(char[,] mapa) { 
-            this.mapa  = mapa; 
+        public Personagem() { 
+         
         }
 
         public void Movimentar(ConsoleKey tecla)
-          
         {
 
             int tempx = pos.x;
@@ -30,25 +28,40 @@ namespace teste1
             switch (tecla)
             {
                 case ConsoleKey.A:
-                    x=pos.left;
+                    x=pos.Left;
                     break ;
                 case ConsoleKey.D:
-                    x = pos.left;
+                    x = pos.Right;
                     break ;
                     
                 case ConsoleKey.W:
-                    y= pos.left;
+                    y= pos.Up;
                     break ;
                     
                 case ConsoleKey.S:
-                    y = pos.left;
+                    y = pos.Down;
                     break;
             }
 
+            if (Mapa.Instance.mapa[x, y] == '#')
+            {
+                pos.x = tempx;
+                pos.y = tempy;
             }
 
 
         }
 
+
+        public void Desenha() 
+        {
+            Console.SetCursorPosition(pos.x, pos.y);
+            Console.Write(forma);
+
+        }
+
+
     }
+
+}
 
