@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace teste1
 {
-    class Personagem
+    public class Personagem : MonoBehaviour
     {
        
         char forma = '@';
        
         public vector2 pos = new vector2(1, 1);
 
-        public Personagem() { 
-         
+
+        private static Personagem instance;
+
+
+        public Personagem()
+        {
+            Run();
         }
+
+        public static Personagem Instance => instance ??= new Personagem();
+
+
 
         public void Movimentar(ConsoleKey tecla)
         {
@@ -53,7 +62,7 @@ namespace teste1
         }
 
 
-        public void Desenha() 
+        public override void Draw() 
         {
             Console.SetCursorPosition(pos.x, pos.y);
             Console.Write(forma);

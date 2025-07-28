@@ -9,32 +9,12 @@ namespace teste1
     class CriptografiaEreditaria
     {
        
-        static bool jogando = true;
-        static Personagem pl ;
+       
         static void Main()
         {
-            Console.Clear();
-
-            // aqui vai entrar o menu de voces
-            jogar();
+            GameManager.Instance.Start();
         }
-        static void jogar()
-        {
-            Mapa.Instance.IniciarMapa();
-            pl = new Personagem();
-
-            while (jogando)
-                {
-                Console.Clear();
-                Mapa.Instance.DesenharMapa();
-                pl.Desenha();
-
-                var tecla = Console.ReadKey(true).Key;
-
-                pl.Movimentar(tecla); 
-            }
-
-        }
+    
          
     }
 }

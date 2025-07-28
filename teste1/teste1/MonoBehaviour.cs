@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace teste1
 {
 
-    public class MonoBehaviour
+    public abstract class MonoBehaviour
     {
         private Thread t;
         private bool ativo = true;
 
+        public bool visible = false;
+        public bool input = false;
 
         public void Run()
         {
@@ -48,5 +50,6 @@ namespace teste1
         public virtual void Update() { }    
         public virtual void LateUpdate() { }
         public virtual void OnDestroy() { }
+        public abstract void Draw();
     }
 }
