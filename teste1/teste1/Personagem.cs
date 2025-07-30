@@ -24,7 +24,14 @@ namespace teste1
 
         public static Personagem Instance => instance ??= new Personagem();
 
+        public override void Update()
+        {
+            if ( input != true ) return;
 
+            ConsoleKey tecla;
+            tecla = Console.ReadKey(true).Key;
+            Movimentar(tecla);
+        }
 
         public void Movimentar(ConsoleKey tecla)
         {
@@ -64,8 +71,10 @@ namespace teste1
 
         public override void Draw() 
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(pos.x, pos.y);
             Console.Write(forma);
+            Console.ResetColor();
 
         }
 

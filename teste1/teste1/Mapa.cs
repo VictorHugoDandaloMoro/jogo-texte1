@@ -18,14 +18,38 @@ namespace teste1
         public static Mapa Instance => instance ??= new Mapa();
 
         public char[,] mapa;
-        public int largura = 50;
-        public int altura = 26;
+        public int largura = 51;
+        public int altura = 27;
 
         public override void Start()
         {
+            mapa = new char[largura , altura];
 
+            string desenhar = """
+                #########################################
+                #       #   #         ###################                
+                ##### #   #   # #####   ######        ###
+                #   # ######### ######   ##### ###### ###
+                # # # #########    #####   ###      # ###
+                # #   ###    #####    ####    ##### # ###
+                # ######  ## ##### ##     ### ##### # ###
+                # #      ###       ## ### #   ##### # ###
+                #   #### #########    ###   ####### # ###
+                # ###### ######### ####   ###     # # ###
+                # #    # ####      ###  ##### ### # # ###
+                #   ## # #### #######  ###### ### # # ###
+                ###### #    #       #    #### ### # # ###
+                ##     ############ #####     ### # # ###
+                ## ##########   #   ####### ##### # # ###
+                ##          # # # # #       #####   # ###
+                ########### # # # # # ############### ###
+                ##          # # # # #       #           #
+                ## ########## # # # ####### # #   # ### #
+                ##            #   #         #   #   ###  
+                #########################################
+                """;
 
-            mapa[6, 2] = '#';
+            /*mapa[6, 2] = '#';
             mapa[6, 3] = '#';
             mapa[4, 3] = '#';
             mapa[4, 4] = '#';
@@ -180,10 +204,30 @@ namespace teste1
             for (int I = 7; I < 16; I++)
             {
                 mapa[I, 21] = '#';
+            }*/
+            string[] linhas = desenhar.Split('\n');
+
+            for (int y = 0; y < altura; y++)
+            {
+                if (y >= linhas.Length) break;
+
+                string linha = linhas[y].TrimEnd();
+                for (int x = 0; x < largura; x++)
+                {
+                    if (x >= linha.Length) 
+                    {
+                        mapa[x, y] = ' ';
+                    }
+                    else
+                    {
+                        mapa[x, y] = linha[x];
+                    }
+                }
+               
             }
         }
 
-        public void iniciarMapa()
+       /* public void iniciarMapa()
         {
             Console.Clear();
             mapa = new char[largura, altura];
@@ -205,22 +249,22 @@ namespace teste1
             }
 
 
-        }
+        }*/
+
+
+
+
         public override void Draw()
         {
-            mapa = new char[largura, altura];
-
-
-            
-
-
-            for (int I = 0; I < 5; I++)
+            Console.SetCursorPosition(0, 0);
+            for (int y = 0; y < altura; y++)
             {
-                mapa[I, 2] = '#';
-
+                for (int x = 0; x < largura; x++)
+                {
+                    Console.Write(mapa[x, y]);
+                }
+                Console.WriteLine();
             }
-
-
 
         }
 

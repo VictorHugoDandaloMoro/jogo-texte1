@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace teste1
             Menu.input = true;
             // Aqui vai entrar o menu de vocês
 
+        }
+
+        public override void Update()
+        {
+            Draw();
         }
 
 

@@ -28,7 +28,7 @@ namespace teste1
                     {
                         Update();
                         LateUpdate();
-                        Thread.Sleep(100);
+                        Thread.Sleep(50);
                     }
                 }
             );

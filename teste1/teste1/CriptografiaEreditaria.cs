@@ -12,6 +12,7 @@ namespace teste1
        
         static void Main()
         {
+            Console.CursorVisible = false;
             GameManager.Instance.Start();
         }
     

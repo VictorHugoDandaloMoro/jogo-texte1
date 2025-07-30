@@ -16,18 +16,23 @@ namespace teste1
         }
         public static menu Instance => instance ??= new menu();
 
-        public string tecla;
+        public ConsoleKey tecla;
 
         public override void Update()
         {
-            Draw();
+
             if (!input) return;
 
-            tecla = Console.ReadLine();
+            tecla = Console.ReadKey(true).Key;
 
             switch (tecla) 
             {
-                case "1":
+                case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
+                    GameManager.Instance.Menu.visible = false;
+                    GameManager.Instance.Menu.input = false;
+
+                    Console.Clear();
                     GameManager.Instance.mapa = Mapa.Instance;
                     GameManager.Instance.mapa.visible = true;
                     GameManager.Instance.mapa.input = true;
@@ -36,17 +41,16 @@ namespace teste1
                     GameManager.Instance.player1.visible = true;
                     GameManager.Instance.player1.input = true;
 
-                    GameManager.Instance.Menu.visible = false;
-                    GameManager.Instance.Menu.input = false;
+                  
                     break;
-                case "2":
+                case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
 
                     break;
             }
         }
         public override void Draw()
         {
-            Console.Clear();
             Console.SetCursorPosition(0, 0);
 
             Console.WriteLine("""
@@ -55,7 +59,6 @@ namespace teste1
                         2 to fora
                 ---------------------------
                 """);
-            tecla = Console.ReadLine();
         }
 
     }
