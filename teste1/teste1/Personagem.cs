@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace teste1
-{
+{   
     public class Personagem : MonoBehaviour
     {
-       
+        public bool pegochave = false;
+        
         char forma = '@';
        
         public vector2 pos = new vector2(1, 1);
@@ -66,7 +67,21 @@ namespace teste1
             }
 
 
+            if (Mapa.Instance.mapa[x, y] == '?')
+            {
+                pegochave = true;
+            }
+
+            if (Mapa.Instance.mapa[x,y] == '|' && pegochave == true) 
+            {
+                Mapa.Instance.visible = false;
+                Console.Clear();
+
+            }
+
+
         }
+
 
 
         public override void Draw() 
